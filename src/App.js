@@ -10,15 +10,15 @@ export const App = () => {
 		<div style={{ padding: '20px' }}>
 			<BrowserRouter>
 				<div>
-					<Link to={"/"}>
+					<Link to={"/react-basics"}>
 						<HomeOutlined />
 						&nbsp;Home
 					</Link>
 				</div>
 				<Routes>
-					<Route path="/" element={<Index />}></Route>
-					<Route path="react-ref" element={<ReactRef />}></Route>
-					<Route path="react-state" element={<ReactState />}></Route>
+					<Route exact path="react-basics" element={<Index />}></Route>
+					<Route exact path="react-basics/react-ref" element={<ReactRef />}></Route>
+					<Route path="react-basics/react-state" element={<ReactState />}></Route>
 				</Routes>
 			</BrowserRouter >
 		</div>
