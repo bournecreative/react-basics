@@ -1,3 +1,3 @@
-# React Patterns
+# React Basics
 
-Solutions to solve usecases. I'd like to archive some solutions to see how they age as I focus more on React.
+Tips and tricks i have come across - nothing mind blowing but helpful to know. Documenting for reference and to help retain info.
