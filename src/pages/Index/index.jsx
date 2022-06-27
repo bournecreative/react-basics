@@ -12,6 +12,9 @@ export const Index = () => {
 			<Tag>
 				<Link to="react-state">React useState</Link>
 			</Tag>
+			<Tag>
+				<Link to="react-use-effect">React useEffect</Link>
+			</Tag>
 		</div>
 	)
 }
