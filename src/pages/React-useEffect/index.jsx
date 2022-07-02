@@ -12,10 +12,11 @@ export const ReactUseEffect = () => {
 			loading: true,
 		}))
 		const randomNumber = Math.floor(Math.random() * 100)
-		fetch(`http://numbersapi.com/${randomNumber}/trivia`)
-			.then((response) => response.text())
+		// fetch(`http://numbersapi.com/${randomNumber}/trivia`)
+		fetch(`https://api.adviceslip.com/advice/${randomNumber}`)
+			.then((response) => response.json())
 			.then((data) => {
-				setTrivia({ info: data, loading: false })
+				setTrivia({ info: data.slip["advice"], loading: false })
 			})
 	}, [triviaCount])
 
@@ -38,15 +39,21 @@ export const ReactUseEffect = () => {
 						when specific values are updated
 					</li>
 				</ul>
-				<Tag
-					icon={trivia.loading ? <SyncOutlined spin /> : ""}
-					color="processing"
+				<Button
+					style={{ marginBottom: "12px" }}
+					primary
+					onClick={() => setTriviaCount(triviaCount + 1)}
 				>
-					{trivia.info}
-				</Tag>
-				<Button primary onClick={() => setTriviaCount(triviaCount + 1)}>
-					Get Trivia
+					Get Advice
 				</Button>
+				<div>
+					<Tag
+						icon={trivia.loading ? <SyncOutlined spin /> : ""}
+						color="processing"
+					>
+						{trivia.info}
+					</Tag>
+				</div>
 			</div>
 		</div>
 	)
