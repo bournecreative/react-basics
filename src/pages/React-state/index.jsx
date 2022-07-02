@@ -3,7 +3,7 @@ import { Tag, Button } from "antd"
 
 // this will only be run once
 function expensiveComputation() {
-	console.log("did i run")
+	console.log("Expensive calculation runs on page load once. Return: " + 100)
 	return 100
 }
 
@@ -33,11 +33,14 @@ export const ReactState = () => {
 				state. This is helpful to avoid multiple updates from happening
 				at the same time.{" "}
 			</p>
-			<div style={{ padding: "10px 0" }}>
-				<Tag color="blue">
-					Simulated expensive calculation - check console log
-					{expensiveCount}
-				</Tag>
+			<div>
+				<p>
+					Simulated expensive calculation - check console log. See how
+					it only renders once regardless of renders
+					<Tag style={{ marginLeft: "12px" }} color="blue">
+						{expensiveCount}
+					</Tag>
+				</p>
 			</div>
 			<div style={{ padding: "10px 0" }}>
 				<Tag color="red">Times rendered {count}</Tag>
