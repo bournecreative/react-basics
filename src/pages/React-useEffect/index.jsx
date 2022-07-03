@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react"
 import { Button, Tag } from "antd"
 import { SyncOutlined } from "@ant-design/icons"
+import { TextWriter } from "../../components/TextWriter/index"
 
 export const ReactUseEffect = () => {
 	const [trivia, setTrivia] = useState({ info: "", loading: true })
 	const [triviaCount, setTriviaCount] = useState(0)
+	const [toggle, setToggle] = useState(true)
+	const [mountMsg, setMountMsg] = useState("")
 
 	useEffect(() => {
 		setTrivia((currentState) => ({
@@ -54,6 +57,13 @@ export const ReactUseEffect = () => {
 						{trivia.info}
 					</Tag>
 				</div>
+			</div>
+			<div style={{ marginTop: "20px" }}>
+				<h2>Clean up function</h2>
+				<p>We can add and remove EventListeners</p>
+				<Button onClick={() => setToggle(!toggle)}>Toggle</Button>
+				{toggle && <TextWriter setMsg={setMountMsg} />}
+				<p>{mountMsg}</p>
 			</div>
 		</div>
 	)
