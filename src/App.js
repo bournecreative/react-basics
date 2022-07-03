@@ -8,16 +8,15 @@ import 'antd/dist/antd.min.css'
 import { useEffect, useState } from 'react'
 
 export const App = () => {
-	const [home, setHome] = useState()
+	const [home, setHome] = useState("/")
 
 	useEffect(() => {
 		const isDevServer = window.location.hostname
 		console.log(isDevServer)
-		if (isDevServer) {
-			setHome("/")
+		if (isDevServer !== 'localhost') {
+			setHome("react-basics/")
 			return
 		}
-		setHome("react-basics/")
 	}, [])
 
 	return (
