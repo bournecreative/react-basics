@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Button, Tag } from "antd"
 import { SyncOutlined } from "@ant-design/icons"
-import { TextWriter } from "../../components/TextWriter/index"
+import { FollowAlong } from "../../components/FollowAlong/index"
 
 export const ReactUseEffect = () => {
 	const [trivia, setTrivia] = useState({ info: "", loading: true })
@@ -60,9 +60,17 @@ export const ReactUseEffect = () => {
 			</div>
 			<div style={{ marginTop: "20px" }}>
 				<h2>Clean up function</h2>
-				<p>We can add and remove EventListeners</p>
+				<p>
+					Manage EventListeners with useEffect. Make note of the red
+					dot following the cursor. There is a mousemove event
+					attached when the "Follow Along" component mounts. When
+					unmounted, we can dispose of the event listeners using
+					useEffect's return function that runs right before the
+					component unmounts. You can verify this by viewing the
+					output console logs and toggling the component on/off.
+				</p>
 				<Button onClick={() => setToggle(!toggle)}>Toggle</Button>
-				{toggle && <TextWriter setMsg={setMountMsg} />}
+				{toggle && <FollowAlong setMsg={setMountMsg} />}
 				<p>{mountMsg}</p>
 			</div>
 		</div>
