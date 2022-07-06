@@ -5,7 +5,7 @@ import { Index } from './pages/Index/index'
 import { ReactRef } from './pages/React-ref/index'
 import { ReactState } from './pages/React-state/index'
 import { ReactUseEffect } from './pages/React-useEffect'
-import { CustomHooks } from './hooks/Custom-hooks/index'
+import { CustomHooks } from './pages/Custom-hooks/index'
 import 'antd/dist/antd.min.css'
 
 export const App = () => {

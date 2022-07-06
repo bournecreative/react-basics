@@ -4,9 +4,6 @@ export const ReactRef = () => {
 	const inputEle = useRef()
 	const [count, setCounter] = useState(0)
 
-	// renderCounter variable is redeclared each render
-	// let renderCounter
-
 	const id = useRef(null)
 
 	useEffect(() => {

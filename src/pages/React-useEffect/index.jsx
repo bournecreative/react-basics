@@ -14,6 +14,7 @@ export const ReactUseEffect = () => {
 			...currentState,
 			loading: true,
 		}))
+
 		const randomNumber = Math.floor(Math.random() * 100)
 		// fetch(`http://numbersapi.com/${randomNumber}/trivia`)
 		fetch(`https://api.adviceslip.com/advice/${randomNumber}`)
@@ -33,14 +34,26 @@ export const ReactUseEffect = () => {
 						order declared.
 					</li>
 					<li>
-						useEffects allow us to do some clean up via their return
-						function that runs before component is unmounted.
+						useEffect will run every render if no dependency is
+						passed.
+					</li>
+					<li>
+						useEffect will run only on page load if [] is passed as
+						as a dependency.
+					</li>
+					<li>
+						useEffect will run when a specific value is updated if
+						that value is passed as a dependency.
+					</li>
+					<li>
+						You can pass more then 1 argument as a dependency.
+						Example [url, loading]
+					</li>
+					<li>
+						Care should be taken when setting up dependencies to
+						prevent infinite loops from occuring.
 					</li>
 					<li>useEffect is a good place to fetch APIs</li>
-					<li>
-						useEffect can be run only on load, every render or only
-						when specific values are updated
-					</li>
 				</ul>
 				<Button
 					style={{ marginBottom: "12px" }}
@@ -59,15 +72,16 @@ export const ReactUseEffect = () => {
 				</div>
 			</div>
 			<div style={{ marginTop: "20px" }}>
-				<h2>Clean up function</h2>
+				<h2>useEffect's clean up function</h2>
 				<p>
 					Manage EventListeners with useEffect. Make note of the red
 					dot following the cursor. There is a mousemove event
-					attached when the "Follow Along" component mounts. When
-					unmounted, we can dispose of the event listeners using
-					useEffect's return function that runs right before the
-					component unmounts. You can verify this by viewing the
-					output console logs and toggling the component on/off.
+					attached when the "Follow Along" component mounts. We can
+					also remove EventListeners using the useEffects return
+					function which runs right before the component is unmounted.
+					You can verify the mechanics of the event listeners being
+					added and removed by viewing the output console logs and
+					toggling the component on/off.
 				</p>
 				<Button onClick={() => setToggle(!toggle)}>Toggle</Button>
 				{toggle && <FollowAlong setMsg={setMountMsg} />}
