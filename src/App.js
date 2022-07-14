@@ -6,6 +6,7 @@ import { ReactRef } from './pages/React-ref/index'
 import { ReactState } from './pages/React-state/index'
 import { ReactUseEffect } from './pages/React-useEffect'
 import { CustomHooks } from './pages/Custom-hooks/index'
+import { ReactUseCallBack } from './pages/React-use-call-back'
 import 'antd/dist/antd.min.css'
 
 export const App = () => {
@@ -13,10 +14,9 @@ export const App = () => {
 
 	useEffect(() => {
 		const isDevServer = window.location.hostname
-		console.log(isDevServer)
+
 		if (isDevServer !== 'localhost') {
 			setHome("react-basics/")
-			return
 		}
 	}, [])
 
@@ -35,6 +35,7 @@ export const App = () => {
 					<Route path={`${home}react-state`} element={<ReactState />}></Route>
 					<Route path={`${home}react-use-effect`} element={<ReactUseEffect />}></Route>
 					<Route path={`${home}custom-hooks`} element={<CustomHooks />}></Route>
+					<Route path={`${home}react-use-call-back`} element={<ReactUseCallBack />}></Route>
 				</Routes>
 			</BrowserRouter >
 		</div>

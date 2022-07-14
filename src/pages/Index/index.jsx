@@ -18,6 +18,9 @@ export const Index = () => {
 			<Tag>
 				<Link to="custom-hooks">React Custom Hooks</Link>
 			</Tag>
+			<Tag>
+				<Link to="react-use-call-back">React use Call Back</Link>
+			</Tag>
 		</div>
 	)
 }
