@@ -1,43 +1,37 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import { HomeOutlined } from "@ant-design/icons"
-import { useEffect, useState } from 'react'
-import { Index } from './pages/Index/index'
-import { ReactRef } from './pages/React-ref/index'
-import { ReactState } from './pages/React-state/index'
-import { ReactUseEffect } from './pages/React-useEffect'
-import { CustomHooks } from './pages/Custom-hooks/index'
-import { ReactUseCallBack } from './pages/React-use-call-back'
-import 'antd/dist/antd.min.css'
+import { createContext } from "react";
+import { Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Index } from "./pages/Index/index";
+import { ReactRef } from "./pages/React-ref/index";
+import { ReactState } from "./pages/React-state/index";
+import { ReactUseEffect } from "./pages/React-useEffect";
+import { CustomHooks } from "./pages/Custom-hooks/index";
+import { ReactUseCallBack } from "./pages/React-use-call-back";
+import { Navigation } from "./components/Navigation/Navigation";
+import "antd/dist/antd.min.css";
+
+export const UserContext = createContext();
 
 export const App = () => {
-	const [home, setHome] = useState("/")
+  const [home, setHome] = useState("/");
 
-	useEffect(() => {
-		const isDevServer = window.location.hostname
+  useEffect(() => {
+    const isDevServer = window.location.hostname;
 
-		if (isDevServer !== 'localhost') {
-			setHome("react-basics/")
-		}
-	}, [])
+    if (isDevServer !== "localhost:3000") {
+      setHome("react-basics/");
+    }
+  }, []);
 
-	return (
-		<div style={{ padding: '20px' }}>
-			<BrowserRouter>
-				<div>
-					<Link to={home}>
-						<HomeOutlined />
-						&nbsp;Home
-					</Link>
-				</div>
-				<Routes>
-					<Route path={home} element={<Index />}></Route>
-					<Route path={`${home}react-ref`} element={<ReactRef />}></Route>
-					<Route path={`${home}react-state`} element={<ReactState />}></Route>
-					<Route path={`${home}react-use-effect`} element={<ReactUseEffect />}></Route>
-					<Route path={`${home}custom-hooks`} element={<CustomHooks />}></Route>
-					<Route path={`${home}react-use-call-back`} element={<ReactUseCallBack />}></Route>
-				</Routes>
-			</BrowserRouter >
-		</div>
-	)
-}
+  return (
+    <div className="main">
+      <Navigation />
+      <UserContext.Provider value="hellow from content">
+        <Routes>
+          <Route path="/" element={<Index />}></Route>
+          <Route path="/about" element={<ReactRef />}></Route>
+        </Routes>
+      </UserContext.Provider>
+    </div>
+  );
+};
