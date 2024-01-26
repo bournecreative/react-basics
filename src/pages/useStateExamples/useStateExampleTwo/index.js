@@ -8,12 +8,13 @@ export const UseStateExampleTwo = () => {
         Updater Function <Tag color="blue">useState</Tag>
       </h2>
       <p>
-        Using an updater function helps ensure the correct state is reflected
-        for UI's using counters. Again we have a counter here in the
-        UI...nothing special. What's special is how we update state using
-        'setCount'.
+        Using an updater function helps avoid raised conditions (two updates
+        happening at the same time). Again we have a counter here in the UI to
+        demonstrate the technique.
       </p>
-      <pre>setCount((c) ={">"} c+1)</pre>
+      <pre>
+        <code>setCount((c) => c+1)</code>
+      </pre>
       <div>
         <span>Count:{count}</span>
         <div>
