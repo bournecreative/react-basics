@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { Tag } from "antd";
 
 function fib(n) {
   const t0 = performance.now();
@@ -21,7 +22,10 @@ export const UseStateExampleOne = () => {
   const fibRef = useRef(0);
   return (
     <div>
-      <h1>useState Example One</h1>
+      <h2>
+        Set initial State via expensive computation
+        <Tag color="blue">useState</Tag>
+      </h2>
       <p>
         In this example we illustrate a pattern if our initial state value is an
         expense computation. Rather then re-running this computation on every
