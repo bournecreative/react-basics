@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu } from "antd";
-import { HomeOutlined, SaveOutlined } from "@ant-design/icons";
+import { HomeOutlined, SaveOutlined, FilterFilled } from "@ant-design/icons";
 
 export const Navigation = () => {
   const [current, setCurrent] = useState("home");
@@ -12,9 +12,12 @@ export const Navigation = () => {
 
   const items = [
     {
-      label: <Link to="/">Home</Link>,
+      label: (
+        <Link to="/">
+          <HomeOutlined />
+        </Link>
+      ),
       key: "home",
-      icon: <HomeOutlined />,
     },
     {
       label: "useState Examples",
@@ -38,6 +41,21 @@ export const Navigation = () => {
         {
           label: <Link to="/useState4">Custom hook</Link>,
           key: "state4",
+        },
+      ],
+    },
+    {
+      label: "useEffect Examples",
+      key: "effect",
+      icon: <FilterFilled />,
+      children: [
+        {
+          label: <Link to="/useEffect1">Clean up functions</Link>,
+          key: "effect1",
+        },
+        {
+          label: <Link to="/useEffect1">API call</Link>,
+          key: "effect2",
         },
       ],
     },
