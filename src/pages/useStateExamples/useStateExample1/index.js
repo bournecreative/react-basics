@@ -43,7 +43,7 @@ export const UseStateExample1 = () => {
       <Col span={24}>
         <Card bordered={false}>
           <h2>
-            Set initial State via expensive computation{" "}
+            Set initial State via expensive computation
             <Tag color="blue">useState</Tag>
           </h2>
           <p>
@@ -70,7 +70,7 @@ export const UseStateExample1 = () => {
               <Tooltip title='Initial count is set by our "Expensive function - fib"'>
                 <QuestionCircleFilled />
               </Tooltip>
-            </strong>{" "}
+            </strong>
             {fibonacci}
           </p>
           <Button onClick={() => setFibonacci((c) => c + 1)}>Increment</Button>
