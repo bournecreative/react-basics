@@ -22,12 +22,22 @@ export const Navigation = () => {
       icon: <SaveOutlined />,
       children: [
         {
-          label: <Link to="/about">Example 1</Link>,
+          label: <Link to="/useState1">Expensive computation</Link>,
           key: "state1",
         },
         {
-          label: <Link to="/about">Example2</Link>,
+          label: <Link to="/useState2">Updater function</Link>,
           key: "state2",
+        },
+        {
+          label: <Link to="/useState3">Multiple States</Link>,
+          key: "state3",
+        },
+        {
+          label: (
+            <Link to="/useState4">Incorporate a useState into a hook</Link>
+          ),
+          key: "state4",
         },
       ],
     },
