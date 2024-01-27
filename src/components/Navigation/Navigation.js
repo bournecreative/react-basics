@@ -54,7 +54,7 @@ export const Navigation = () => {
           key: "effect1",
         },
         {
-          label: <Link to="/useEffect1">API call</Link>,
+          label: <Link to="/useEffect2">API call</Link>,
           key: "effect2",
         },
       ],
