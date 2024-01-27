@@ -1,25 +1,18 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button, Card, Col, Row, Tag } from "antd";
 import { SyncOutlined } from "@ant-design/icons";
+import { useFetch } from "../../../hooks/useFetch";
+
+function randomNumber() {
+  return Math.floor(Math.random() * 100);
+}
 
 export const UseEffectExample2 = () => {
-  const [trivia, setTrivia] = useState({ info: "", loading: true });
-  const [triviaCount, setTriviaCount] = useState(0);
+  const [triviaCount, setTriviaCount] = useState(1);
 
-  useEffect(() => {
-    setTrivia((currentState) => ({
-      ...currentState,
-      loading: true,
-    }));
-
-    const randomNumber = Math.floor(Math.random() * 100);
-    // fetch(`http://numbersapi.com/${randomNumber}/trivia`)
-    fetch(`https://api.adviceslip.com/advice/${randomNumber}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setTrivia({ info: data.slip["advice"], loading: false });
-      });
-  }, [triviaCount]);
+  const { data, loading } = useFetch(
+    `https://api.adviceslip.com/advice/${triviaCount}`
+  );
 
   return (
     <Row gutter={16}>
@@ -36,17 +29,16 @@ export const UseEffectExample2 = () => {
           <div>
             <Button
               style={{ marginBottom: "12px" }}
-              primary
-              onClick={() => setTriviaCount(triviaCount + 1)}
+              onClick={() => setTriviaCount(randomNumber())}
             >
               Get Advice
             </Button>
             <div>
               <Tag
-                icon={trivia.loading ? <SyncOutlined spin /> : ""}
+                icon={loading ? <SyncOutlined spin /> : ""}
                 color="processing"
               >
-                {trivia.info}
+                {data ? data : ""}
               </Tag>
             </div>
           </div>
