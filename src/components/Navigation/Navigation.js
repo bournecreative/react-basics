@@ -22,7 +22,9 @@ export const Navigation = () => {
       icon: <SaveOutlined />,
       children: [
         {
-          label: <Link to="/useState1">Expensive computation</Link>,
+          label: (
+            <Link to="/useState1">Expensive initial state computation</Link>
+          ),
           key: "state1",
         },
         {
@@ -30,13 +32,11 @@ export const Navigation = () => {
           key: "state2",
         },
         {
-          label: <Link to="/useState3">Multiple States</Link>,
+          label: <Link to="/useState3">useState object</Link>,
           key: "state3",
         },
         {
-          label: (
-            <Link to="/useState4">Incorporate a useState into a hook</Link>
-          ),
+          label: <Link to="/useState4">Custom hook</Link>,
           key: "state4",
         },
       ],
