@@ -24,6 +24,8 @@ export const App = () => {
 
     if (isDevServer !== "localhost") {
       setHome("react-basics/");
+    } else {
+      setHome("/");
     }
   }, []);
 
@@ -32,7 +34,7 @@ export const App = () => {
       <Navigation />
       <UserContext.Provider value="hellow from content">
         <Routes>
-          <Route path="/" element={<Index />}></Route>
+          <Route path={home} element={<Index />}></Route>
           <Route path="/useState1" element={<UseStateExample1 />}></Route>
           <Route path="/useState2" element={<UseStateExample2 />}></Route>
           <Route path="/useState3" element={<UseStateExample3 />}></Route>

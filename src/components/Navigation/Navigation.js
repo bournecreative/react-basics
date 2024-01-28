@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu } from "antd";
 import {
@@ -12,6 +12,18 @@ import {
 export const Navigation = () => {
   const [current, setCurrent] = useState("home");
 
+  const [home, setHome] = useState("/");
+
+  useEffect(() => {
+    const isDevServer = window.location.hostname;
+
+    if (isDevServer !== "localhost") {
+      setHome("react-basics/");
+    } else {
+      setHome("/");
+    }
+  }, []);
+
   const onClick = (e) => {
     setCurrent(e.key);
   };
@@ -19,7 +31,7 @@ export const Navigation = () => {
   const items = [
     {
       label: (
-        <Link to="/">
+        <Link to={home}>
           <HomeOutlined />
         </Link>
       ),
