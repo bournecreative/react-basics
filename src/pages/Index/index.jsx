@@ -1,26 +1,17 @@
-import { Link } from "react-router-dom"
-import { Tag, Divider } from "antd"
+import React, { useContext } from "react";
+import { UserContext } from "../../App";
 
 export const Index = () => {
-	return (
-		<div className="main">
-			<h1>Understand React Better</h1>
-			<Divider orientation="left">React Tips</Divider>
-			<Tag>
-				<Link to="react-ref">React useRef</Link>
-			</Tag>
-			<Tag>
-				<Link to="react-state">React useState</Link>
-			</Tag>
-			<Tag>
-				<Link to="react-use-effect">React useEffect</Link>
-			</Tag>
-			<Tag>
-				<Link to="custom-hooks">React Custom Hooks</Link>
-			</Tag>
-			<Tag>
-				<Link to="react-use-call-back">React use Call Back</Link>
-			</Tag>
-		</div>
-	)
-}
+  const testContext = useContext(UserContext);
+
+  return (
+    <div>
+      <h1>Home page for react basics.</h1>
+      <p>
+        See tips and tricks for using the various React hooks and learn how to
+        build your own custom hooks from these various examples.
+      </p>
+      <div>{testContext}</div>
+    </div>
+  );
+};
