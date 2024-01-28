@@ -1,17 +1,15 @@
 import { useRef, useLayoutEffect, useState } from "react";
 import { Button, Card, Col, Input, Row, Tag } from "antd";
 import styles from "./style.module.css";
+import { useMeasure } from "../../../hooks/useMeasure";
 
 export const UseLayoutExample1 = () => {
   const el = useRef(null);
   const [width, setWidth] = useState(
     Math.floor(Math.random() * (1000 - 200) + 200)
   );
-  const [size, setSize] = useState({});
-  console.log(width);
-  useLayoutEffect(() => {
-    setSize(el.current.getBoundingClientRect());
-  }, [width]);
+
+  const result = useMeasure(el, width);
 
   return (
     <Row gutter={16}>
@@ -31,7 +29,7 @@ export const UseLayoutExample1 = () => {
             style={{ width: `${width}px` }}
             className={styles["container"]}
           >
-            <pre>{JSON.stringify(size, null, 2)}</pre>
+            <pre>{JSON.stringify(result, null, 2)}</pre>
           </div>
           <Button
             style={{ margin: "12px 0" }}

@@ -11,7 +11,6 @@ import { UseEffectExample2 } from "./pages/useEffectExamples/useEffectExample2";
 import { UseRefExample1 } from "./pages/useRefExamples/useRefExample1";
 import { UseRefExample2 } from "./pages/useRefExamples/useRefExample2";
 import { UseLayoutExample1 } from "./pages/useLayOutEffectExample/useLayOutEffectExample1";
-import { CustomHooks } from "./pages/Custom-hooks/index";
 import { Navigation } from "./components/Navigation/Navigation";
 import "antd/dist/antd.min.css";
 import "./pages/style.module.css";
