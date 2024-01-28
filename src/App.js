@@ -8,7 +8,8 @@ import { UseStateExample3 } from "./pages/useStateExamples/useStateExample3";
 import { UseStateExample4 } from "./pages/useStateExamples/useStateExample4";
 import { UseEffectExample1 } from "./pages/useEffectExamples/useEffectExample1";
 import { UseEffectExample2 } from "./pages/useEffectExamples/useEffectExample2";
-import { ReactRef } from "./pages/React-ref/index";
+import { UseRefExample1 } from "./pages/useRefExamples/useRefExample1";
+import { UseRefExample2 } from "./pages/useRefExamples/useRefExample2";
 
 // import { ReactUseEffect } from "./pages/React-useEffect";
 import { CustomHooks } from "./pages/Custom-hooks/index";
@@ -41,6 +42,8 @@ export const App = () => {
           <Route path="/useState4" element={<UseStateExample4 />}></Route>
           <Route path="/useEffect1" element={<UseEffectExample1 />}></Route>
           <Route path="/useEffect2" element={<UseEffectExample2 />}></Route>
+          <Route path="/useRef1" element={<UseRefExample1 />}></Route>
+          <Route path="/useRef2" element={<UseRefExample2 />}></Route>
         </Routes>
       </UserContext.Provider>
     </div>

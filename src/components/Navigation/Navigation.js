@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu } from "antd";
-import { HomeOutlined, SaveOutlined, FilterFilled } from "@ant-design/icons";
+import {
+  HomeOutlined,
+  SaveOutlined,
+  FilterFilled,
+  RightSquareFilled,
+} from "@ant-design/icons";
 
 export const Navigation = () => {
   const [current, setCurrent] = useState("home");
@@ -56,6 +61,21 @@ export const Navigation = () => {
         {
           label: <Link to="/useEffect2">API call</Link>,
           key: "effect2",
+        },
+      ],
+    },
+    {
+      label: "useRef Examples",
+      key: "ref",
+      icon: <RightSquareFilled />,
+      children: [
+        {
+          label: <Link to="/useRef1">Reference elements</Link>,
+          key: "ref1",
+        },
+        {
+          label: <Link to="/useRef2">Counting renders</Link>,
+          key: "ref2",
         },
       ],
     },
