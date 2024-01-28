@@ -6,6 +6,7 @@ import {
   SaveOutlined,
   FilterFilled,
   RightSquareFilled,
+  LayoutFilled,
 } from "@ant-design/icons";
 
 export const Navigation = () => {
@@ -76,6 +77,17 @@ export const Navigation = () => {
         {
           label: <Link to="/useRef2">Counting renders</Link>,
           key: "ref2",
+        },
+      ],
+    },
+    {
+      label: "useLayoutEffect Examples",
+      key: "layout",
+      icon: <LayoutFilled />,
+      children: [
+        {
+          label: <Link to="/useLayout1">DOM Updates</Link>,
+          key: "layout1",
         },
       ],
     },
