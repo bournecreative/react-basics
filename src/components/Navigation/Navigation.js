@@ -7,6 +7,7 @@ import {
   FilterFilled,
   RightSquareFilled,
   LayoutFilled,
+  PhoneFilled,
 } from "@ant-design/icons";
 
 export const Navigation = () => {
@@ -100,6 +101,17 @@ export const Navigation = () => {
         {
           label: <Link to="/useLayout1">DOM Updates</Link>,
           key: "layout1",
+        },
+      ],
+    },
+    {
+      label: "useCallBack Examples",
+      key: "callback",
+      icon: <PhoneFilled />,
+      children: [
+        {
+          label: <Link to="/useCallback1">Callback with Memo</Link>,
+          key: "callback1",
         },
       ],
     },

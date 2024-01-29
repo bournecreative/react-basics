@@ -11,6 +11,7 @@ import { UseEffectExample2 } from "./pages/useEffectExamples/useEffectExample2";
 import { UseRefExample1 } from "./pages/useRefExamples/useRefExample1";
 import { UseRefExample2 } from "./pages/useRefExamples/useRefExample2";
 import { UseLayoutExample1 } from "./pages/useLayOutEffectExample/useLayOutEffectExample1";
+import { UseCallbackExample1 } from "./pages/useCallbackExamples/useCallbackExample1";
 import { Navigation } from "./components/Navigation/Navigation";
 import "antd/dist/antd.min.css";
 import "./pages/style.module.css";
@@ -44,6 +45,7 @@ export const App = () => {
           <Route path="/useRef1" element={<UseRefExample1 />}></Route>
           <Route path="/useRef2" element={<UseRefExample2 />}></Route>
           <Route path="/useLayout1" element={<UseLayoutExample1 />}></Route>
+          <Route path="/useCallback1" element={<UseCallbackExample1 />}></Route>
         </Routes>
       </UserContext.Provider>
     </div>
