@@ -8,7 +8,8 @@ export const useFetch = (url) => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        setResult({ data: data.slip.advice, loading: false });
+        console.log(data);
+        setResult({ data: data, loading: false });
       });
   }, [url]);
 
