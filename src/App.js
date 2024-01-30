@@ -13,6 +13,7 @@ import { UseRefExample2 } from "./pages/useRefExamples/useRefExample2";
 import { UseLayoutExample1 } from "./pages/useLayOutEffectExample/useLayOutEffectExample1";
 import { UseCallbackExample1 } from "./pages/useCallbackExamples/useCallbackExample1";
 import { Navigation } from "./components/Navigation/Navigation";
+import { UseMemoExample1 } from "./pages/useMemoExamples/useMemoExample1/useMemoExample1";
 import "antd/dist/antd.min.css";
 import "./pages/style.module.css";
 
@@ -46,6 +47,7 @@ export const App = () => {
           <Route path="/useRef2" element={<UseRefExample2 />}></Route>
           <Route path="/useLayout1" element={<UseLayoutExample1 />}></Route>
           <Route path="/useCallback1" element={<UseCallbackExample1 />}></Route>
+          <Route path="/useMemo1" element={<UseMemoExample1 />}></Route>
         </Routes>
       </UserContext.Provider>
     </div>

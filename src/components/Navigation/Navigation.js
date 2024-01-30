@@ -115,6 +115,17 @@ export const Navigation = () => {
         },
       ],
     },
+    {
+      label: "useMemo Examples",
+      key: "memo",
+      icon: <PhoneFilled />,
+      children: [
+        {
+          label: <Link to="/useMemo1">Callback with Memo</Link>,
+          key: "memo1",
+        },
+      ],
+    },
   ];
 
   return (
