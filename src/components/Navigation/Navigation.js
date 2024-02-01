@@ -8,6 +8,7 @@ import {
   RightSquareFilled,
   LayoutFilled,
   PhoneFilled,
+  HistoryOutlined,
 } from "@ant-design/icons";
 
 export const Navigation = () => {
@@ -118,7 +119,7 @@ export const Navigation = () => {
     {
       label: "useMemo Examples",
       key: "memo",
-      icon: <PhoneFilled />,
+      icon: <HistoryOutlined />,
       children: [
         {
           label: <Link to="/useMemo1">Callback with Memo</Link>,
