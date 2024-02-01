@@ -34,16 +34,16 @@ export const UseEffectExample2 = () => {
               Get Advice
             </Button>
             <div>
-              {data?.slip?.advice ? (
-                <Tag
-                  icon={loading ? <SyncOutlined spin /> : ""}
-                  color="processing"
-                >
-                  {data.slip.advice ? data.slip.advice : ""}
-                </Tag>
-              ) : (
-                <Tag color="red">{`Running low on advie to give - ${data.message.type} : ${data.message.text}`}</Tag>
-              )}
+              <Tag
+                color={`${data?.message?.type === "error" ? "red" : "blue"}`}
+                icon={loading ? <SyncOutlined spin /> : ""}
+              >
+                {data?.slip?.advice
+                  ? data?.slip?.advice
+                  : data?.message?.type
+                  ? data?.message?.type
+                  : ""}
+              </Tag>
             </div>
           </div>
         </Card>
