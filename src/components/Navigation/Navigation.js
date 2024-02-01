@@ -122,7 +122,7 @@ export const Navigation = () => {
       icon: <HistoryOutlined />,
       children: [
         {
-          label: <Link to="/useMemo1">Callback with Memo</Link>,
+          label: <Link to="/useMemo1">useMemo and Expensive functions</Link>,
           key: "memo1",
         },
       ],
