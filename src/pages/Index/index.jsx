@@ -4,7 +4,11 @@ import { Card, Col, Row, Tag } from "antd";
 import { UserContext } from "../../context/userContext";
 
 export const Index = () => {
-  const home = window.location.hostname === "localhost" ? "/" : "react-basics/";
+  const path =
+    window.location.origin === "https://bournecreative.github.io"
+      ? "/react-basics"
+      : "/";
+
   const { contextValue } = useContext(UserContext);
   return (
     <Row gutter={16}>
@@ -21,7 +25,9 @@ export const Index = () => {
           <div style={{ margin: "12px 0" }}>
             Context Value<Tag color="blue">{contextValue}</Tag>
           </div>
-          <Link to="useContext1">Back to useContext Example</Link>
+          <Link to={`${path ? path + "/useContext1" : "/useContext1"}`}>
+            Back to useContext Example
+          </Link>
         </Card>
       </Col>
     </Row>

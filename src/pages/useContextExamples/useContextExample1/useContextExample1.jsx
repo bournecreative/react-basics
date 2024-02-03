@@ -8,7 +8,10 @@ import { exampleCode2 } from "./exampleCode";
 export const UseContextExample1 = () => {
   const { contextValue, setContextValue } = useContext(UserContext);
 
-  const home = window.location.hostname === "localhost" ? "/" : "react-basics/";
+  const home =
+    window.location.origin === "https://bournecreative.github.io"
+      ? "/react-basics"
+      : "/";
 
   const handleSubmit = (e) => {
     e.preventDefault();

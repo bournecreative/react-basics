@@ -39,7 +39,10 @@ export const App = () => {
       <Navigation />
       <UserContext.Provider value={{ contextValue, setContextValue }}>
         <Routes>
-          <Route path="/" element={<Index />}></Route>
+          <Route
+            path={`${prodUrl ? prodUrl : "/"}`}
+            element={<Index />}
+          ></Route>
           <Route
             path={`${prodUrl ? prodUrl + "/useState1" : "/useState1"}`}
             element={<UseStateExample1 />}
