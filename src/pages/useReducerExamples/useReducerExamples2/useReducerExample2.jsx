@@ -1,6 +1,7 @@
 import { useReducer } from "react";
 import { Card, Col, Row, Tag } from "antd";
 import { exampleCode } from "./exampleCode";
+import { DeleteOutlined } from "@ant-design/icons";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -14,6 +15,14 @@ function reducer(state, action) {
           if (item.text === action.payload) {
             return { ...item, completed: !item.completed };
           } else {
+            return item;
+          }
+        }),
+      };
+    case "delete":
+      return {
+        todos: state.todos.filter((item) => {
+          if (item.text !== action.payload) {
             return item;
           }
         }),
@@ -39,6 +48,9 @@ export const UseReducerExample2 = () => {
     dispatch({ type: "status", payload: target });
   };
 
+  const handleDelete = (target) => {
+    dispatch({ type: "delete", payload: target });
+  };
   return (
     <Row gutter={16}>
       <Col span={24}>
@@ -73,6 +85,7 @@ export const UseReducerExample2 = () => {
                     key={item + i}
                   >
                     {item.text}
+                    <DeleteOutlined onClick={() => handleDelete(item.text)} />
                   </div>
                 );
               })
