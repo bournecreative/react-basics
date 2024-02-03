@@ -137,6 +137,10 @@ export const Navigation = () => {
           label: <Link to="/useReducer1">A useState Alternative</Link>,
           key: "reducer1",
         },
+        {
+          label: <Link to="/useReducer2">todo with useReducer</Link>,
+          key: "reducer2",
+        },
       ],
     },
   ];
