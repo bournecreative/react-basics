@@ -10,6 +10,7 @@ import {
   PhoneFilled,
   HistoryOutlined,
   ControlOutlined,
+  PushpinOutlined,
 } from "@ant-design/icons";
 
 export const Navigation = () => {
@@ -140,6 +141,17 @@ export const Navigation = () => {
         {
           label: <Link to="/useReducer2">todo with useReducer</Link>,
           key: "reducer2",
+        },
+      ],
+    },
+    {
+      label: "useContext Examples",
+      key: "context",
+      icon: <PushpinOutlined />,
+      children: [
+        {
+          label: <Link to="/useContext1">Global State</Link>,
+          key: "context1",
         },
       ],
     },

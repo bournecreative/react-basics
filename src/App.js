@@ -1,4 +1,3 @@
-import { createContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Index } from "./pages/Index/index";
@@ -16,13 +15,16 @@ import { Navigation } from "./components/Navigation/Navigation";
 import { UseMemoExample1 } from "./pages/useMemoExamples/useMemoExample1/useMemoExample1";
 import { UseReducerExample1 } from "./pages/useReducerExamples/useReducerExamples1/useReducerExample1";
 import { UseReducerExample2 } from "./pages/useReducerExamples/useReducerExamples2/useReducerExample2";
+import { UseContextExample1 } from "./pages/useContextExamples/useContextExample1/useContextExample1";
+import { UserContext } from "./context/userContext";
 import "antd/dist/antd.min.css";
 import "./pages/style.module.css";
 
-export const UserContext = createContext();
 export const App = () => {
   const [home, setHome] = useState("/");
-
+  const [contextValue, setContextValue] = useState(
+    "initial context value. Nano - Nano"
+  );
   useEffect(() => {
     const isDevServer = window.location.hostname;
 
@@ -36,7 +38,7 @@ export const App = () => {
   return (
     <div className="main">
       <Navigation />
-      <UserContext.Provider value="hellow from content">
+      <UserContext.Provider value={{ contextValue, setContextValue }}>
         <Routes>
           <Route path={home} element={<Index />}></Route>
           <Route path="/useState1" element={<UseStateExample1 />}></Route>
@@ -52,6 +54,7 @@ export const App = () => {
           <Route path="/useMemo1" element={<UseMemoExample1 />}></Route>
           <Route path="/useReducer1" element={<UseReducerExample1 />}></Route>
           <Route path="/useReducer2" element={<UseReducerExample2 />}></Route>
+          <Route path="/useContext1" element={<UseContextExample1 />}></Route>
         </Routes>
       </UserContext.Provider>
     </div>
