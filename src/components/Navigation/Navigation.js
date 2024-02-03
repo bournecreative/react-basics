@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu } from "antd";
 import {
@@ -13,29 +13,26 @@ import {
   PushpinOutlined,
 } from "@ant-design/icons";
 
+function getPath() {
+  if (window.location.origin === "https://bournecreative.github.io") {
+    console.log("match", window.location.origin);
+    return "/react-basics";
+  }
+}
+
 export const Navigation = () => {
   const [current, setCurrent] = useState("home");
 
-  const [home, setHome] = useState("/");
+  const [prodUrl, setProdUrl] = useState(() => getPath());
 
-  useEffect(() => {
-    const isDevServer = window.location.hostname;
-
-    if (isDevServer !== "localhost") {
-      setHome("react-basics/");
-    } else {
-      setHome("/");
-    }
-  }, []);
-
-  const onClick = (e) => {
+  const handleMenuChange = (e) => {
     setCurrent(e.key);
   };
 
   const items = [
     {
       label: (
-        <Link to={home}>
+        <Link to={`${prodUrl ? prodUrl : "/"}`}>
           <HomeOutlined />
         </Link>
       ),
@@ -48,20 +45,34 @@ export const Navigation = () => {
       children: [
         {
           label: (
-            <Link to="/useState1">Expensive initial state computation</Link>
+            <Link to={`${prodUrl ? prodUrl + "/useState1" : "/useState1"}`}>
+              Expensive initial state computation
+            </Link>
           ),
           key: "state1",
         },
         {
-          label: <Link to="/useState2">Updater function</Link>,
+          label: (
+            <Link to={`${prodUrl ? prodUrl + "/useState2" : "/useState2"}`}>
+              Updater function
+            </Link>
+          ),
           key: "state2",
         },
         {
-          label: <Link to="/useState3">useState object</Link>,
+          label: (
+            <Link to={`${prodUrl ? prodUrl + "/useState3" : "/useState3"}`}>
+              useState object
+            </Link>
+          ),
           key: "state3",
         },
         {
-          label: <Link to="/useState4">Custom hook</Link>,
+          label: (
+            <Link to={`${prodUrl ? prodUrl + "/useState4" : "/useState4"}`}>
+              Custom hook
+            </Link>
+          ),
           key: "state4",
         },
       ],
@@ -72,11 +83,19 @@ export const Navigation = () => {
       icon: <FilterFilled />,
       children: [
         {
-          label: <Link to="/useEffect1">Clean up functions</Link>,
+          label: (
+            <Link to={`${prodUrl ? prodUrl + "/useEffect1" : "/useEffect1"}`}>
+              Clean up functions
+            </Link>
+          ),
           key: "effect1",
         },
         {
-          label: <Link to="/useEffect2">API call</Link>,
+          label: (
+            <Link to={`${prodUrl ? prodUrl + "/useEffect2" : "/useEffect2"}`}>
+              API call
+            </Link>
+          ),
           key: "effect2",
         },
       ],
@@ -87,11 +106,19 @@ export const Navigation = () => {
       icon: <RightSquareFilled />,
       children: [
         {
-          label: <Link to="/useRef1">Reference elements</Link>,
+          label: (
+            <Link to={`${prodUrl ? prodUrl + "/useRef1" : "/useRef1"}`}>
+              Reference elements
+            </Link>
+          ),
           key: "ref1",
         },
         {
-          label: <Link to="/useRef2">Counting renders</Link>,
+          label: (
+            <Link to={`${prodUrl ? prodUrl + "/useRef2" : "/useRef2"}`}>
+              Counting renders
+            </Link>
+          ),
           key: "ref2",
         },
       ],
@@ -102,7 +129,11 @@ export const Navigation = () => {
       icon: <LayoutFilled />,
       children: [
         {
-          label: <Link to="/useLayout1">DOM Updates</Link>,
+          label: (
+            <Link to={`${prodUrl ? prodUrl + "/useLayout1" : "/useLayout1"}`}>
+              DOM Updates
+            </Link>
+          ),
           key: "layout1",
         },
       ],
@@ -113,7 +144,13 @@ export const Navigation = () => {
       icon: <PhoneFilled />,
       children: [
         {
-          label: <Link to="/useCallback1">Callback with Memo</Link>,
+          label: (
+            <Link
+              to={`${prodUrl ? prodUrl + "/useCallback1" : "/useCallback1"}`}
+            >
+              Callback with Memo
+            </Link>
+          ),
           key: "callback1",
         },
       ],
@@ -124,7 +161,11 @@ export const Navigation = () => {
       icon: <HistoryOutlined />,
       children: [
         {
-          label: <Link to="/useMemo1">useMemo and Expensive functions</Link>,
+          label: (
+            <Link to={`${prodUrl ? prodUrl + "/useMemo1" : "/useMemo1"}`}>
+              useMemo and Expensive functions
+            </Link>
+          ),
           key: "memo1",
         },
       ],
@@ -135,11 +176,19 @@ export const Navigation = () => {
       icon: <ControlOutlined />,
       children: [
         {
-          label: <Link to="/useReducer1">A useState Alternative</Link>,
+          label: (
+            <Link to={`${prodUrl ? prodUrl + "/useReducer1" : "/useReducer1"}`}>
+              A useState Alternative
+            </Link>
+          ),
           key: "reducer1",
         },
         {
-          label: <Link to="/useReducer2">todo with useReducer</Link>,
+          label: (
+            <Link to={`${prodUrl ? prodUrl + "/useReducer2" : "/useReducer2"}`}>
+              todo with useReducer
+            </Link>
+          ),
           key: "reducer2",
         },
       ],
@@ -150,7 +199,11 @@ export const Navigation = () => {
       icon: <PushpinOutlined />,
       children: [
         {
-          label: <Link to="/useContext1">Global State</Link>,
+          label: (
+            <Link to={`${prodUrl ? prodUrl + "/useContext1" : "/useContext1"}`}>
+              Global State
+            </Link>
+          ),
           key: "context1",
         },
       ],
@@ -159,7 +212,7 @@ export const Navigation = () => {
 
   return (
     <Menu
-      onClick={onClick}
+      onClick={handleMenuChange}
       selectedKeys={[current]}
       mode="horizontal"
       items={items}

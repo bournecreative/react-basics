@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Index } from "./pages/Index/index";
 import { UseStateExample1 } from "../src/pages/useStateExamples/useStateExample1";
 import { UseStateExample2 } from "./pages/useStateExamples/useStateExample2";
@@ -20,41 +20,82 @@ import { UserContext } from "./context/userContext";
 import "antd/dist/antd.min.css";
 import "./pages/style.module.css";
 
+function getPath() {
+  if (window.location.origin === "https://bournecreative.github.io") {
+    console.log("match", window.location.origin);
+    return "/react-basics";
+  }
+}
+
 export const App = () => {
-  const [home, setHome] = useState("/");
   const [contextValue, setContextValue] = useState(
     "initial context value. Nano - Nano"
   );
-  useEffect(() => {
-    const isDevServer = window.location.hostname;
 
-    if (isDevServer !== "localhost") {
-      setHome("react-basics/");
-    } else {
-      setHome("/");
-    }
-  }, []);
+  const [prodUrl, setProdUrl] = useState(() => getPath());
 
   return (
     <div className="main">
       <Navigation />
       <UserContext.Provider value={{ contextValue, setContextValue }}>
         <Routes>
-          <Route path={home} element={<Index />}></Route>
-          <Route path="/useState1" element={<UseStateExample1 />}></Route>
-          <Route path="/useState2" element={<UseStateExample2 />}></Route>
-          <Route path="/useState3" element={<UseStateExample3 />}></Route>
-          <Route path="/useState4" element={<UseStateExample4 />}></Route>
-          <Route path="/useEffect1" element={<UseEffectExample1 />}></Route>
-          <Route path="/useEffect2" element={<UseEffectExample2 />}></Route>
-          <Route path="/useRef1" element={<UseRefExample1 />}></Route>
-          <Route path="/useRef2" element={<UseRefExample2 />}></Route>
-          <Route path="/useLayout1" element={<UseLayoutExample1 />}></Route>
-          <Route path="/useCallback1" element={<UseCallbackExample1 />}></Route>
-          <Route path="/useMemo1" element={<UseMemoExample1 />}></Route>
-          <Route path="/useReducer1" element={<UseReducerExample1 />}></Route>
-          <Route path="/useReducer2" element={<UseReducerExample2 />}></Route>
-          <Route path="/useContext1" element={<UseContextExample1 />}></Route>
+          <Route path="/" element={<Index />}></Route>
+          <Route
+            path={`${prodUrl ? prodUrl + "/useState1" : "/useState1"}`}
+            element={<UseStateExample1 />}
+          ></Route>
+          <Route
+            path={`${prodUrl ? prodUrl + "/useState2" : "/useState2"}`}
+            element={<UseStateExample2 />}
+          ></Route>
+          <Route
+            path={`${prodUrl ? prodUrl + "/useState3" : "/useState3"}`}
+            element={<UseStateExample3 />}
+          ></Route>
+          <Route
+            path={`${prodUrl ? prodUrl + "/useState4" : "/useState4"}`}
+            element={<UseStateExample4 />}
+          ></Route>
+          <Route
+            path={`${prodUrl ? prodUrl + "/useEffect1" : "/useEffect1"}`}
+            element={<UseEffectExample1 />}
+          ></Route>
+          <Route
+            path={`${prodUrl ? prodUrl + "/useEffect2" : "/useEffect2"}`}
+            element={<UseEffectExample2 />}
+          ></Route>
+          <Route
+            path={`${prodUrl ? prodUrl + "/useRef1" : "/useRef1"}`}
+            element={<UseRefExample1 />}
+          ></Route>
+          <Route
+            path={`${prodUrl ? prodUrl + "/useRef2" : "/useRef2"}`}
+            element={<UseRefExample2 />}
+          ></Route>
+          <Route
+            path={`${prodUrl ? prodUrl + "/useLayout1" : "/useLayout1"}`}
+            element={<UseLayoutExample1 />}
+          ></Route>
+          <Route
+            path={`${prodUrl ? prodUrl + "/useCallback1" : "/useCallback1"}`}
+            element={<UseCallbackExample1 />}
+          ></Route>
+          <Route
+            path={`${prodUrl ? prodUrl + "/useMemo1" : "/useMemo1"}`}
+            element={<UseMemoExample1 />}
+          ></Route>
+          <Route
+            path={`${prodUrl ? prodUrl + "/useReducer1" : "/useReducer1"}`}
+            element={<UseReducerExample1 />}
+          ></Route>
+          <Route
+            path={`${prodUrl ? prodUrl + "/useReducer2" : "/useReducer2"}`}
+            element={<UseReducerExample2 />}
+          ></Route>
+          <Route
+            path={`${prodUrl ? prodUrl + "/useContext1" : "/useContext1"}`}
+            element={<UseContextExample1 />}
+          ></Route>
         </Routes>
       </UserContext.Provider>
     </div>
