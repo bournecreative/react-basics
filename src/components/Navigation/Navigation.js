@@ -9,6 +9,7 @@ import {
   LayoutFilled,
   PhoneFilled,
   HistoryOutlined,
+  ControlOutlined,
 } from "@ant-design/icons";
 
 export const Navigation = () => {
@@ -124,6 +125,17 @@ export const Navigation = () => {
         {
           label: <Link to="/useMemo1">useMemo and Expensive functions</Link>,
           key: "memo1",
+        },
+      ],
+    },
+    {
+      label: "useReducer Examples",
+      key: "reducer",
+      icon: <ControlOutlined />,
+      children: [
+        {
+          label: <Link to="/useReducer1">A useState Alternative</Link>,
+          key: "reducer1",
         },
       ],
     },
