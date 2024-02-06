@@ -191,6 +191,14 @@ export const Navigation = () => {
           ),
           key: "reducer2",
         },
+        {
+          label: (
+            <Link to={`${prodUrl ? prodUrl + "/useReducer3" : "/useReducer3"}`}>
+              When to use UseReducer
+            </Link>
+          ),
+          key: "reducer3",
+        },
       ],
     },
     {

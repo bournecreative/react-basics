@@ -15,6 +15,7 @@ import { Navigation } from "./components/Navigation/Navigation";
 import { UseMemoExample1 } from "./pages/useMemoExamples/useMemoExample1/useMemoExample1";
 import { UseReducerExample1 } from "./pages/useReducerExamples/useReducerExamples1/useReducerExample1";
 import { UseReducerExample2 } from "./pages/useReducerExamples/useReducerExamples2/useReducerExample2";
+import { UseReducerExample3 } from "./pages/useReducerExamples/useReducerExamples3/useReducerExample3";
 import { UseContextExample1 } from "./pages/useContextExamples/useContextExample1/useContextExample1";
 import { UserContext } from "./context/userContext";
 import "antd/dist/antd.min.css";
@@ -94,6 +95,10 @@ export const App = () => {
           <Route
             path={`${prodUrl ? prodUrl + "/useReducer2" : "/useReducer2"}`}
             element={<UseReducerExample2 />}
+          ></Route>
+          <Route
+            path={`${prodUrl ? prodUrl + "/useReducer3" : "/useReducer3"}`}
+            element={<UseReducerExample3 />}
           ></Route>
           <Route
             path={`${prodUrl ? prodUrl + "/useContext1" : "/useContext1"}`}
