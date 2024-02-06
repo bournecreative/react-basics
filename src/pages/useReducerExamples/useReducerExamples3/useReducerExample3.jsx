@@ -5,18 +5,38 @@ function reducer(state, action) {
   switch (action.type) {
     case "mountains":
       return {
+        activity: "",
         place: "mountains",
-        activities: [1, 2, 3],
+        activities: [
+          { value: "hiking", lablel: "hiking" },
+          { value: "backpacking", lablel: "backpacking" },
+          { value: "mountain climbing", lable: "mountain climbing" },
+        ],
       };
     case "ocean":
       return {
+        activity: "",
         place: "ocean",
-        activities: ["a", "b", "c"],
+        activities: [
+          { value: "surfing", lablel: "surfing" },
+          { value: "snorkeling", lablel: "snorkeling" },
+          { value: "scuba diving", lable: "scuba diving" },
+        ],
       };
     case "river":
       return {
+        activity: "",
         place: "river",
-        activities: ["A", "B", "C"],
+        activities: [
+          { value: "kayaking", lablel: "kayaking" },
+          { value: "fishing", lablel: "fishing" },
+          { value: "boating", lable: "boating" },
+        ],
+      };
+    case "activityType":
+      return {
+        ...state,
+        activity: action.payload,
       };
     default:
       return state;
@@ -24,13 +44,17 @@ function reducer(state, action) {
 }
 
 export const UseReducerExample3 = () => {
-  const [{ place, activities }, dispatch] = useReducer(reducer, {
+  const [{ place, activities, activity }, dispatch] = useReducer(reducer, {
     place: "",
     activities: [],
   });
 
   const onChange = (value) => {
     dispatch({ type: `${value}` });
+  };
+
+  const onActivityChange = (value) => {
+    dispatch({ type: "activityType", payload: `${value}` });
   };
 
   return (
@@ -54,7 +78,7 @@ export const UseReducerExample3 = () => {
           </div>
         </Card>
       </Col>
-      <Col span={4}>
+      <Col span={8}>
         <Card bordered={false}>
           <Select
             style={{ width: "100%" }}
@@ -82,9 +106,11 @@ export const UseReducerExample3 = () => {
             showSearch
             placeholder="Pick an activity"
             optionFilterProp="children"
-            onChange={onChange}
+            onChange={onActivityChange}
             options={activities}
           />
+          <div>Selected Location: {place}</div>
+          <div>Selected Activity: {activity}</div>
         </Card>
       </Col>
     </Row>
